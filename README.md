@@ -29,7 +29,7 @@ pip install tk
 
 ### Modifica del Batch di avvio
 Tasto destro > Modifica sul file "AvviaTombola.cmd".
-  <p align="center"><img src="immagini/modificaavvia.jpg" alt="avvia" width="150"></p>
+  <p align="center"><img src="immagini/modificaavvia.jpg" alt="avvia" width="550"></p>
 Nella parte evidenziata in blu inserire la directory di "python.exe".
 
 ### Avvio applicazione
