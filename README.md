@@ -29,7 +29,7 @@ pip install tk
 
 ### Avvio applicazione
 Doppio click sul seguente file:
-  <p align="center"><img src="immagini/avvia.jpg" alt="avvia" width="550"></p>
+  <p align="center"><img src="immagini/avvia.jpg" alt="avvia" width="150"></p>
 
 Si apriranno 3 finestre:
 1. Terminale: su cui verranno stampati i numeri estratti
