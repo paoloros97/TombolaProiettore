@@ -63,8 +63,10 @@ Per iniziare una nuova giocata premere il pulsante "Giocata > Nuova". Il tabello
 
 ### Features
 È possibile modificare: il font dei numeri, la loro dimensione, il colore di evidenziazione dei numeri.
-
 Il programma è predisposto per la pronuncia dei numeri in automatico. Mancano le tracce audio di alcuni numeri.
+È compatibile con Ubuntu.
+È compatibile con Mac OS, ma con le dovute (piccole) modifiche.
+
 
 
 ## Notes
