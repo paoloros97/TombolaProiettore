@@ -27,6 +27,11 @@ pip install random
 pip install tk
 ```
 
+### Modifica del Batch di avvio
+Tasto destro > Modifica sul file "AvviaTombola.cmd".
+  <p align="center"><img src="immagini/modificaavvia.jpg" alt="avvia" width="150"></p>
+Nella parte evidenziata in blu inserire la directory di "python.exe".
+
 ### Avvio applicazione
 Doppio click sul seguente file (Windows only):
   <p align="center"><img src="immagini/avvia.jpg" alt="avvia" width="150"></p>
