@@ -1,0 +1,2 @@
+# TombolaBingo
+Tombola per proiettore
