@@ -31,10 +31,10 @@ pip install tk
 Tasto destro > Modifica sul file "AvviaTombola.cmd".
   <p align="center"><img src="immagini/modificaavvia.jpg" alt="avvia" width="550"></p>
 Nella parte evidenziata in blu inserire la directory di "python.exe".
-Per trovare la directory lanciare il seguente comando in PowerShell: (<a href="https://stackoverflow.com/questions/647515/how-can-i-find-where-python-is-installed-on-windows">Source</a>)
+Per trovare la directory di Python lanciare il seguente comando nel terminale: (<a href="https://stackoverflow.com/questions/647515/how-can-i-find-where-python-is-installed-on-windows">Source</a>)
 
 ```
-where.exe python
+where python
 ```
 
 
