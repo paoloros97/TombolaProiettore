@@ -2,26 +2,6 @@ from tkinter import *
 from tkinter import font as tkFont
 import random
 
-#Esempio for MacOS - maybe - https://stackoverflow.com/questions/1529847/how-to-change-the-foreground-or-background-colour-of-a-tkinter-button-on-mac-os
-    #
-    #from tkinter import *
-    #from tkmacosx import Button #pip3 install tkmacosx
-    #
-    #root = Tk()
-    #
-    #B1 = Button(root, text='Mac OSX', bg='black',fg='green', borderless=1)
-    #B1.pack()
-    #
-    #root.mainloop()
-# Fine esempio per MacOs
-
-#Installare su mac 
-#No: brew install python-tk
-#Ni: pip3 install tk
-
-#  Da Installare come admin (sia PC che Mac):
-#  pip install playsound==1.2.2
-
 #___ PARAMETRI DA MODIFICARE___
 grandezzaFont = 60 # Cambiare per ingrandire o rimpicciolire i numeri
 famigliaFont = "" # Oppure , Times, Courier
@@ -1136,3 +1116,26 @@ GiocataMenu.add_command(label = "Chiudi tutto", command = ChiudiTutto)
 #Fine items
 
 root.mainloop()
+
+
+## Note
+
+#Esempio for MacOS - maybe - https://stackoverflow.com/questions/1529847/how-to-change-the-foreground-or-background-colour-of-a-tkinter-button-on-mac-os
+    #
+    #from tkinter import *
+    #from tkmacosx import Button #pip3 install tkmacosx
+    #
+    #root = Tk()
+    #
+    #B1 = Button(root, text='Mac OSX', bg='black',fg='green', borderless=1)
+    #B1.pack()
+    #
+    #root.mainloop()
+# Fine esempio per MacOs
+
+#Installare su mac 
+#No: brew install python-tk
+#Ni: pip3 install tk
+
+#  Da Installare come admin (sia PC che Mac):
+#  pip install playsound==1.2.2
