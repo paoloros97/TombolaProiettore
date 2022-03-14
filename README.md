@@ -1,12 +1,5 @@
-# Tombola
-Tombola per proiettore
+# Tombola per proiettore
 
-
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <h3 align="center">Tombola per proiettore</h3>
-</p>
 
 <!-- GETTING STARTED -->
 ## Installazione
