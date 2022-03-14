@@ -45,17 +45,13 @@ Si apriranno 3 finestre:
 
  <p align="center"><img src="immagini/estrattore.jpg" alt="avvia" width="550"></p>
 
-### Reset (Nuova giocata)
-
- <p align="center"><img src="immagini/nuova.jpg" alt="avvia" width="550"></p>
-
-
 ### Spoiler
 
  <p align="center"><img src="immagini/spoiler.jpg" alt="avvia" width="550"></p>
 
+### Reset (Nuova giocata)
 
-
+ <p align="center"><img src="immagini/nuova.jpg" alt="avvia" width="550"></p>
 
 
 
