@@ -28,7 +28,7 @@ pip install tk
 ```
 
 ### Avvio applicazione
-Doppio click sul seguente file:
+Doppio click sul seguente file (Windows only):
   <p align="center"><img src="immagini/avvia.jpg" alt="avvia" width="150"></p>
 
 Si apriranno 3 finestre:
