@@ -41,6 +41,9 @@ Si apriranno 3 finestre:
 Premere il numero estratto manualmente direttamente sul tabellone ingorando completamente l'estrattore automatico.
  <p align="center"><img src="immagini/manuale.jpg" alt="avvia" width="550"></p>
 
+#### Nota
+Per mostrare il tabellone a schermo intero preme il pulsante "F11" dalla tastiera (verificare che la finestra del tabellone sia quella attiva durante la pressione del pulsante "F11"). Se si usa un proiettore in modalità "Estesa", il tabellone a schermo intero verrà mostrato sul desktop principale e non su quello secondario/esteso. 
+
 ### Estrazione automatica
 Premere il pulsante "Estrai Numero" per estrarre automaticamente i numeri. Il corrispettivo numero verrà evidenziato automaticamente sul tabellone.
 
