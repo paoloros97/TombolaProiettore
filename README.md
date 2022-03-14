@@ -49,6 +49,9 @@ Premere il pulsante "Estrai Numero" per estrarre automaticamente i numeri. Il co
 
  <p align="center"><img src="immagini/estrattore.jpg" alt="avvia" width="550"></p>
 
+#### Nota
+Non usare le due modalità di estrazione (manuale ed automatica) in maniera promiscua. Scegliere una sola modalità fin dall'inizio.
+
 ### Spoiler
 La successione di tutti i numeri è definita a priori. È possibile visualizzarla per intero prima o durante la giocata.
 
