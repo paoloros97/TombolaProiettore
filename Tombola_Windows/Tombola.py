@@ -2,22 +2,28 @@ import tkinter as tk
 from tkinter import messagebox
 import random
 
+# To build the .exe
+#pyinstaller --clean --onefile --icon icona.ico .\Tombola.py
+
 class Tabellone:
     def __init__(self, master):
 
-        self.coloreEstratto = "#3cff00"
-        self.coloreBase = "#ffffff"
+        self.coloreEstratto = "#ff0000" # Colorazione del numero sul tabellone estratto
+        self.coloreBase = "#ffffff" # Colorazione base del numero sul tabellone (non estratto)
 
-        # Tabellone
+        # Finestra Tabellone
         self.master = master
-        
         self.master.title('Tombola by Ros')
+        self.master.bind("<F11>", lambda event: self.master.attributes("-fullscreen", not self.master.attributes("-fullscreen")))
+        self.master.bind("<Escape>", lambda event: self.master.attributes("-fullscreen", False)) 
+
+        # Dimensione automatica della finestra
         window_width = self.master.winfo_screenwidth()
         window_height = self.master.winfo_screenheight()
         self.master.geometry ("%dx%d"%(window_width,window_height))
 
-        self.button = []
-        num = 0
+        self.button = [] # Inizializzazione della griglia di numeri (Buttons)
+        num = 0 # Contatore che poi sarà utilizzato come indice della lista button
         for i in range(0, 9):
             for j in range(0, 10):
                 num = num + 1
@@ -26,7 +32,7 @@ class Tabellone:
                 tk.Grid.rowconfigure(self.master, i, weight = 1)
                 tk.Grid.columnconfigure(self.master, j, weight = 1)
         
-        # Estrattore
+        # Finestra Estrattore
         self.estrattore = tk.Toplevel(self.master)
         self.estrattore.protocol("WM_DELETE_WINDOW", self.disable_event) # Disabilita il pulsante X della finestra
         self.frame = tk.Frame(self.estrattore)
@@ -42,72 +48,44 @@ class Tabellone:
         
         self.frame.pack() # Tappo della finestra dell'estrattore
 
-        self.nuovaGiocataFair() # Prepara nuova giocata
-        #self.nuovaGiocata() # Prepara nuova giocata
+        self.nuovaGiocataFair() # Prepara la prima giocata
 
 
-    def disable_event(self): # Disabilita il pulsante X della finestra
+    def disable_event(self): # Disabilita il pulsante X della finestra -mostra una finestra di warning.
         messagebox.showwarning('Warning', 'Per terminare il programma chiudere la finestra del Tabellone.')
         pass
 
-    # def nuovaGiocata(self):
-
-    #     self.giocata = random.sample(range(90), 90) # Prepara una nuova stiga di numeri casuali
-    #     self.posizione = 0 # Azzera il contatore che indicizza il numero estratto
-    #     #print(self.giocata)
-
-    #     for btn_number in range(len(self.button)):
-    #         self.button[btn_number]["bg"] = self.coloreBase
-
-    #     self.status_label.config(text = "N° estratto") # Reimposta il visualizzatore nell'estrattore
-
     def nuovaGiocataFair(self):
-        
-        self.estratti = set()
+        self.estratti = set() #Re-inizializza il set di deposito numeri estratti
         
         for btn_number in range(len(self.button)):
             self.button[btn_number]["bg"] = self.coloreBase
 
         self.status_label.config(text = "N° estratto") # Reimposta il visualizzatore nell'estrattore
 
-
-    def changeColor(self, btn_number): # Toggle del colore sul tabellone
-
-        if self.button[btn_number].cget('bg') == self.coloreBase:
-            self.button[btn_number]["bg"] = self.coloreEstratto
-        else:
-            self.button[btn_number]["bg"] = self.coloreBase
-    
-    # def Estrai(self):
-
-    #     if self.posizione == 90:
-    #         self.status_label.config(text = "Fine")
-    #         print("Fine") # Tabellone completato
-    #         return
-
-    #     indice = self.giocata[self.posizione]
-    #     print(indice + 1)
-    #     self.changeColor(indice) #Colora il numero estratto sul tabellone  
-    #     self.status_label.config(text = str(indice + 1)) #Stampa il numero estratto sulla finestra dell'Estrattore
-    #     self.posizione += 1 #Pronto per il successivo
-    
     def EstraiFair(self):
-        attuali = len(self.estratti)
-
-        if attuali == 90:
+        attuali = len(self.estratti) # Conta il totale dei numeri estratti fin'ora
+        
+        if attuali == 90: # Esce se è stato completato il tabellone
             self.status_label.config(text = "Fine")
-            print("Fine") # Tabellone completato
+            print("Fine")
             return
 
         numero = random.randrange(90) # Estrae un numero casuale intero tra 0 e 89
         self.estratti.add(numero) # Aggiunge il numero estratto al Set
 
-        if len(self.estratti) == attuali: # Se il numero era già stato estratto, si ripete l'estrazione.
-            self.EstraiFair() 
+        if len(self.estratti) == attuali: # Se il numero era già stato estratto prima, si ripete l'estrazione.
+            self.EstraiFair() # Chiamata ricorsiva
         else: # Altrimenti lo si mostra sul tabellone.
             print(numero + 1) # +1 perchè il "numero" rappresenta l'indice
-            self.changeColor(numero) #Colora il numero estratto sul tabellone  
-            self.status_label.config(text = str(numero + 1)) #Stampa il numero estratto sulla finestra dell'Estrattore
+            self.changeColor(numero) # Colora il numero estratto sul tabellone  
+            self.status_label.config(text = str(numero + 1)) # Stampa il numero estratto sulla finestra dell'Estrattore
+   
+    def changeColor(self, btn_number): # Toggle del colore sul tabellone
+        if self.button[btn_number].cget('bg') == self.coloreBase: # Se il colore attuale è uguale al colore base imposta il coloreEstratto
+            self.button[btn_number]["bg"] = self.coloreEstratto
+        else: # Altrimenti imposta il coloreBase
+            self.button[btn_number]["bg"] = self.coloreBase
 
 def main(): 
     root = tk.Tk()
