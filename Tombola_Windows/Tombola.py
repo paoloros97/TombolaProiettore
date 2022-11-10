@@ -56,6 +56,7 @@ class Tabellone:
         pass
 
     def nuovaGiocataFair(self):
+        print('Nuova estrazione.')
         self.estratti = set() #Re-inizializza il set di deposito numeri estratti
         
         for btn_number in range(len(self.button)):
