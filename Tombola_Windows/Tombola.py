@@ -34,6 +34,7 @@ class Tabellone:
         
         # Finestra Estrattore
         self.estrattore = tk.Toplevel(self.master)
+        self.estrattore.title("Estrattore")
         self.estrattore.protocol("WM_DELETE_WINDOW", self.disable_event) # Disabilita il pulsante X della finestra
         self.frame = tk.Frame(self.estrattore)
 
