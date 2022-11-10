@@ -105,7 +105,7 @@ class Tabellone:
         if len(self.estratti) == attuali: # Se il numero era già stato estratto, si ripete l'estrazione.
             self.EstraiFair() 
         else: # Altrimenti lo si mostra sul tabellone.
-            print(numero + 1) # +1 perchè il "numero" rappresenta l'indice
+            print(numero)
             self.changeColor(numero) #Colora il numero estratto sul tabellone  
             self.status_label.config(text = str(numero + 1)) #Stampa il numero estratto sulla finestra dell'Estrattore
 
