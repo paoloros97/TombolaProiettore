@@ -1,9 +1,9 @@
+import random
 import tkinter as tk
 from tkinter import messagebox
-import random
 
 # To build the .exe
-#pyinstaller --clean --onefile --icon icona.ico .\Tombola.py
+# pyinstaller --clean --onefile --icon icona.ico .\Tombola.py
 
 class Tabellone:
     def __init__(self, master):
