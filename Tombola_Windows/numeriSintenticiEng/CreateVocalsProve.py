@@ -1,6 +1,6 @@
 from gtts import gTTS
 
-testo = 'grazie al cazzo'
+testo = 'grazie al ca'
 
 tts = gTTS(testo, lang='it')
 
