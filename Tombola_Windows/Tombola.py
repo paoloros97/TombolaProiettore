@@ -26,29 +26,43 @@ class Tabellone:
         for i in range(0, 9): # rows
             for j in range(0, 10): # columns
                 num = num + 1
-                self.button.append(tk.Button(self.master, text=str(num), bg = '#ffffff', font=("", 60), command = lambda c = num-1: self.changeColor(c)))
+                self.button.append(tk.Button(self.master, text=str(num), bg = '#ffffff', font=("", 60), command = lambda c = num-1: self.man_changeColor(c)))
                 self.button[-1].grid(row=i, column=j, sticky="EWNS") # -1 is the last element in the list
                 tk.Grid.rowconfigure(self.master, i, weight = 1)
                 tk.Grid.columnconfigure(self.master, j, weight = 1)
         
         # __Finestra Estrattore__
         self.estrattore = tk.Toplevel(self.master)
+        self.estrattore.geometry('300x200')
         self.estrattore.title("Estrattore")
         self.estrattore.protocol("WM_DELETE_WINDOW", self.disable_event) # Disabilita il pulsante X della finestra
         self.frame = tk.Frame(self.estrattore)
 
-        New_btn = tk.Button(self.frame, text="Pulisci Tabellone", command = lambda : self.nuovaGiocataFair() )
-        New_btn.grid(sticky = tk.NW)
+        self.New_btn = tk.Button(self.frame, text="Pulisci Tabellone", command = lambda : self.confirm() )
+        self.New_btn.grid(sticky = tk.NW)
 
-        Estrai_btn = tk.Button(self.frame, text="Estrai Numero", font=("", 30), command = lambda : self.EstraiFair())
-        Estrai_btn.grid()
+        self.Estrai_btn = tk.Button(self.frame, text="Estrai Numero", font=("", 30), bg = '#9fc5e8',command = lambda : self.EstraiFair())
+        self.Estrai_btn.grid(pady = 20)
 
         self.status_label = tk.Label(self.frame, text="", font=("", 30))
-        self.status_label.grid(sticky = tk.S)
-        
+        self.status_label.grid(sticky = tk.SW)
+
         self.frame.pack() # Tappo della finestra dell'estrattore
 
         self.nuovaGiocataFair() # Prepara la prima giocata
+
+    def confirm(self):
+        self.New_btn["state"] = "disabled"
+        answer = messagebox.askyesno(
+            title='Conferma reset tabellone',
+            message='Sicuro di voler pulire il Tabellone?')
+
+        if answer:
+            self.nuovaGiocataFair()
+            self.New_btn["state"] = "normal"
+        else:
+            self.New_btn["state"] = "normal"
+
 
 
     def disable_event(self): # Disabilita il pulsante X della finestra -mostra una finestra di warning.
@@ -82,11 +96,19 @@ class Tabellone:
             self.changeColor(numero) # Colora il numero estratto sul tabellone  
             self.status_label.config(text = str(numero + 1)) # Stampa il numero estratto sulla finestra dell'Estrattore
    
-    def changeColor(self, btn_number): # Toggle del colore sul tabellone
+    def changeColor(self, btn_number): # Toggle del colore sul tabellone da estrattore
         if self.button[btn_number].cget('bg') == self.coloreBase: # Se il colore attuale è uguale al colore base imposta il coloreEstratto
             self.button[btn_number]["bg"] = self.coloreEstratto
         else: # Altrimenti imposta il coloreBase
             self.button[btn_number]["bg"] = self.coloreBase
+    
+    def man_changeColor(self, btn_number): # Toggle del colore sul tabellone manuale
+        if self.button[btn_number].cget('bg') == self.coloreBase: # Se il colore attuale è uguale al colore base imposta il coloreEstratto
+            self.button[btn_number]["bg"] = self.coloreEstratto
+            self.estratti.add(btn_number)
+        else: # Altrimenti imposta il coloreBase
+            self.button[btn_number]["bg"] = self.coloreBase
+            self.estratti.remove(btn_number)
 
 def main(): 
     root = tk.Tk()
