@@ -1,10 +1,9 @@
+from os import environ
+environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 from pygame import mixer
 import random
 import tkinter as tk
 from tkinter import messagebox
-
-
-
 
 # To build the .exe
 # pyinstaller --clean --onefile --icon icona.ico .\Tombola.py
@@ -106,7 +105,7 @@ class Tabellone:
     def changeColor(self, btn_number): # Toggle del colore sul tabellone da estrattore
         if self.button[btn_number].cget('bg') == self.coloreBase: # Se il colore attuale è uguale al colore base imposta il coloreEstratto
             self.button[btn_number]["bg"] = self.coloreEstratto
-            nomeFile = 'numeriSintenticiEng/' + str(btn_number + 1) + '.mp3'
+            nomeFile = 'numeriSintentici/' + str(btn_number + 1) + '.mp3'
             mixer.music.load(nomeFile)
             mixer.music.play()
         else: # Altrimenti imposta il coloreBase
@@ -118,7 +117,7 @@ class Tabellone:
         if self.button[btn_number].cget('bg') == self.coloreBase: # Se il colore attuale è uguale al colore base imposta il coloreEstratto
             self.button[btn_number]["bg"] = self.coloreEstratto
             self.estratti.add(btn_number)
-            nomeFile = 'numeriSintenticiEng/' + str(btn_number + 1) + '.mp3'
+            nomeFile = 'numeriSintentici/' + str(btn_number + 1) + '.mp3'
             mixer.music.load(nomeFile)
             mixer.music.play()
         else: # Altrimenti imposta il coloreBase
